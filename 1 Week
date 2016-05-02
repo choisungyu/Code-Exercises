@@ -1,0 +1,247 @@
+
+Q#1
+**Create a While-Loop that increments by 3.**
+Have your loop increment up to 15.  In your code block within your loop `console.log` your counter variable.  The final result should output: 
+ TIP: All the output text should be white, do not worry if you get green text, such as the number 18.
+
+ 0
+ 3
+ 6
+ 9
+ 12
+ 15
+
+ START WHILE-LOOP HERE
+
+var counter = 0;
+while (counter <16 ) {
+	console.log(counter);
+	counter += 3;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Q#2
+ **Use a "While-Loop" that increments the amount of characters in a string**
+
+ Have your "While-Loops's" counter be a letter.  Add the same letter character until you have 5 letters on your final string.  Analyze the example case below:
+
+ Example:
+
+ Your loop should concatenate(add) an "L" to your string each pass
+
+ "L"
+ "LL"
+ "LLL"
+ "LLLL"
+ "LLLLL"
+
+var counter = 0;
+var letter = "";
+while (counter < 5) {
+	letter += 'L';
+	console.log(letter);
+	counter++;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Q#3
+Create a function "tenToZero" that console.logs all numbers from 10 all the way down to 0.
+
+function tenToZero(num) {
+	while (num >= 0) { 
+		console.log(num);
+		num--;
+	}
+}
+
+tenToZero(10);
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q#4 Create a function logCharacters that accepts a string as an argument.  Console.log all the characters in the string.
+
+
+function logCharacters(str) {
+	for (var i = 0; i < str.length; i++) {
+		console.log(str[i]);
+	}
+}
+
+logCharacters("sdflkjsfiels")
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Repeat A String
+
+Fullstack Academy - JavaScript JumpStart
+- Description
+Create a function "repeat" that accepts two arguments, the string to repeat and the a number that represtents how many times to repeat the string argument.  Return a string that concatenates all the times the string is repeated.
+*NOTE: Do NOT use the [String.prototype.repeat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)*
+
+**Examples**
+
+- INPUT: `repeat("yo",4);`
+- OUTPUT: `'yoyoyoyo'`
+
+- INPUT: `repeat("yo",0);`
+- OUTPUT: `''`
+
+- INPUT: `repeat("bye",6);`
+- OUTPUT: `'byebyebyebyebyebye'`
+
+Write Code Below
+
+
+function repeat(str,num) {
+	var text = "";
+	for (var i = 0; i < num; i++) {
+		text += str;
+	}
+	return text;
+}
+
+repeat("yo", 0);
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Reverse a String
+
+// Fullstack Academy - JavaScript JumpStart
+
+
+// - Description
+
+// Create the function "reverseString" that reverses a string and returns the value of the reversed string. NOTE: Do NOT use the .reverse() method.
+
+// INPUT: reverseString("hello");
+// OUTPUT: "olleh";
+
+//*** Write the reverseString Function below ***
+
+function reverseString(str) {
+	text = "";
+	for(var i = str.length-1 ; i >= 0; i--) {
+		text += str[i];
+	}
+	return text;
+}
+
+reverseString("hello");
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Sum Of Digits- Exercise Link
+
+Create the function sumOfDigits that adds individual digits of a number and return the sum.
+
+
+**Example:**
+
+- INPUT: `sumOfDigits(414);`
+4+1+4
+- Return Value: `9`
+
+- INPUT: `sumOfDigits(2913);`
+- Return Value: `15`
+
+
+
+
+TIP:
+
+You may need to use the following methods or operators in your solution, reference the workshop page for additional information.
+
+*/
+
+function sumOfDigits(num) {
+	var sum = 0;
+	for (var i = 0; i < num.toString().length ; i++) {
+		sum += parseInt(num.toString()[i]);
+	}
+	return sum;
+}
+
+sumOfDigits(2913);
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+/*
+
+[Factorial] - Exercise Link
+
+Create the function factorial(num) that returns the factorial of the parameter.
+
+Not sure what the factorial is? Check this [link for a refresher!](http://www.rapidtables.com/math/algebra/Factorial.htm)
+
+**Example:**
+
+- INPUT: `factorial(4);`
+- Return Value: `24`
+// 4 * 3 * 2 * 1
+*/
+
+
+function factorial(num) {
+	var sum = num;
+	var factor = num;
+	for (var i = num-1; i > 0 ; i--){
+		factor = factor - 1;
+		sum *= factor;
+	}
+	return sum;
+}
+
+factorial(5);
+-----------------------------------------------------------------------------------------------------------------------------------------
+/* 
+
+Vowel Count
+
+Fullstack Academy - JavaScript JumpStart
+
+- Description:
+
+Create the function "vowelCount(str)" that takes a str parameter and returns the number of vowels 
+the string contains (ie. "Fullstack Academy" would return 5).  
+
+**Do not count 'y' as a vowel for this challenge.**
+
+**Example**
+
+- INPUT: `vowelCount("Good Job");`
+- Return Value: `3`
+
+*** Write the vowelCount Function below *** */
+
+
+function vowelCount(str) {
+	var count = 0;
+	var strCount = str.toUpperCase();
+	var vowels = 'AEIOU';
+	for (var i = 0; i < str.length; i++){
+		if (strCount[i] === 'A' || strCount[i] === 'E' || strCount[i] === 'I'|| strCount[i] === 'O'|| strCount[i] === 'U') {
+			count += 1;
+		}
+	}
+	return count;
+}
+ vowelCount("Good Job");
+ 
+
+function vowelCount2(str) {
+	var count = 0;
+	var strCount = str.toUpperCase();
+	var vowels = 'AEIOU';
+	for (var i = 0; i < str.length; i++){
+		if (vowels.indexOf(strCount[i]) > 1) {
+			count ++;
+		}
+	}
+	return count;
+}
+
+vowelCount2("Good Job");
