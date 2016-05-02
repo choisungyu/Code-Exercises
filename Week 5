@@ -1,0 +1,242 @@
+/*Using the JavaScript language, have the function PatternChaser(str) take str which will be a string and return the longest pattern within the string. 
+A pattern for this challenge will be defined as: if at least 2 or more adjacent characters within the string repeat at least twice. So for example "aabecaa" 
+contains the pattern aa, on the other hand "abbbaac" doesn't contain any pattern. Your program should return yes/no pattern/null. So if str were 
+"aabejiabkfabed" the output should be yes abe. If str were "123224" the output should return no null. The string may either contain all characters 
+(a through z only), integers, or both. But the parameter will always be a string type. The maximum length for the string being passed in will be 20 
+characters. If a string for example is "aa2bbbaacbbb" the pattern is "bbb" and not "aa". You must always return the longest pattern possible. 
+*/
+
+/*
+
+function PatternChaser(str) {
+	//object can store the pattern
+	var obj = {};
+	//2d array can store key pattern and values for comparison
+	var arr = [];
+	var arr2 = [];
+
+	//use double for loop to go through the pattern
+	for(var l = Math.floor(str.length / 2); l >= 2 ; l--) {
+		for(var i = 0; i < str.length - l; i++){
+			//create pattern
+			var pattern = str.substr(i,l);
+			console.log(i,l);
+			console.log(pattern);
+			//make pattern key so you can add a counter to any repeating pattern
+			if (obj[pattern] === undefined) {
+				obj[pattern] = 1;
+			}else{
+				obj[pattern] += 1;
+			}
+		}
+	}
+	
+	// move objects to array
+	for (var keyValues in obj) {
+		arr.push([keyValues, obj[keyValues]]);
+	}
+	
+	//filter array for pattern with more than one character
+	for (var n = 0; n < arr.length ; n++) {
+		if ( arr[n][1] >= 2 && arr[n][0].length > 1) {
+			arr2.push(arr[n]);
+		}
+	}
+	
+	//Check if there is no pattern, return null
+	if (arr2[0] === undefined) {
+		return "no null";
+	}
+	 (va)
+	//sort arr2 to get the longest pattern
+	arr2.sort(function(a,b) {
+		if (a[0].length === b[0].length) {
+			return 0;
+		} else if( a[0].length > b[0].length) {
+			return 1;
+		} else {
+			return -1;
+		}
+	});
+	return "yes " + arr2[arr2.length-1][0]; // return the 0 index of the last index in an 2d array   
+}
+
+
+*/
+
+
+//PatternChaser("aabejiabkfabed");
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//																Updated PatterChaserv2
+
+function PatternChaser(str) {
+
+	//use double for loop to go through the pattern
+	for(var n = str.length-1; n >= 2 ; n--) {
+		for(var i = 0; i < str.length - n; i++){
+			
+			//create pattern
+			var pattern = str.substr(i,n);
+
+			//Check if the largest pattern matches, str.Match() puts results into array
+			var checkPattern = new RegExp(pattern,"g");
+			if(str.match(checkPattern) !== null){
+				if(str.match(checkPattern).length > 1 ){
+					return "yes " + pattern;
+				}
+			}
+		}
+	}
+	return "no null";
+}
+	
+	
+PatternChaser("abcdef12kkk12");
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+/*Using the JavaScript language, have the function ArrayRotation(arr) take the arr parameter being passed which will be an array of non-negative integers and circularly rotate the array starting from the Nth element where N is equal to the first integer in the array. For example: if arr is [2, 3, 4, 1, 6, 10] then your program should rotate the array starting from the 2nd position because the first element in the array is 2. The final array will therefore be 
+[4, 1, 6, 10, 2, 3], and your program should return the new array as a string, so for this example your program would return 4161023. The first element in the array will always be an integer greater than or equal to 0 and less than the size of the array. 
+*/
+
+function ArrayRotation(arr) { 
+	var newArr= arr;
+	var n = arr[0];
+	for( var i = 0 ; i < n ; i++) {
+		newArr.push(newArr.shift());
+	}
+	return newArr.join("");
+}
+
+ArrayRotation([2, 3, 4, 1, 6, 10]);
+
+----------------------------------------------------------------------------------------------------------------------------------------
+/*Using the JavaScript language, have the function PowersofTwo(num) take the num parameter being passed which will be an integer and return the string true if it's a power of two. If it's not return the string false. For example if the input is 16 then your program should return the string true but if the input is 22 then the output should be the string false. 
+*/
+
+function PowersofTwo(num) { 
+	var numTest = 0;
+	for ( var i = 1; numTest < num; i++) {
+		numTest = Math.pow(2,i);
+		console.log(numTest);
+	}
+	if ( num % numTest === 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+PowersofTwo(16);
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*Using the JavaScript language, have the function MultiplicativePersistence(num) take the num parameter being passed which will always be a positive integer and return its multiplicative persistence which is the number of times you must multiply the digits in num until you reach a single digit. For example: if num is 39 then your program should return 3 because 3 * 9 = 27 then 2 * 7 = 14 and finally 1 * 4 = 4 and you stop at 4. 
+*/
+
+function MultiplicativePersistence(num) {
+	var counter = 0;
+	var sum = num;
+	
+	function multiply(n) {
+		var x = 1;
+		var arr = n.toString().split("");
+		while (arr.length > 0) {
+			x *= parseInt(arr.shift());
+		}
+		console.log(x);
+		return x;
+	}
+	
+	if(num < 10){
+		return 0;
+	}else{
+		do {
+			sum = multiply(sum);
+			counter++;
+		} while (sum > 9);
+	}
+	
+	return counter;
+}
+
+MultiplicativePersistence(2984);
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+/*Using the JavaScript language, have the function NumberSearch(str) take the str parameter, search for all the numbers in the string, add them together, then return that final number divided by the total amount of letters in the string. For example: if str is "Hello6 9World 2, Nic8e D7ay!" the output should be 2. First if you add up all the numbers, 6 + 9 + 2 + 8 + 7 you get 32. Then there are 17 letters in the string. 32 / 17 = 1.882, and the final answer should be rounded to the nearest whole number, so the answer is 2. Only single digit numbers separated by spaces will be used throughout the whole string (So this won't ever be the case: hello44444 world). Each string will also have at least one letter. 
+*/
+
+function NumberSearch(str) { 
+	var num = 0;
+	var letters = "";
+	var strTest = str.toLowerCase();
+	
+	for (var i = 0; i < str.length; i++) {
+		if(strTest[i] >= 1 && strTest[i] <=9 ) {
+			num += parseInt(str[i]);
+		}else if (strTest[i] >= "a" && strTest <= "z") {
+			letters += str[i];
+		}
+	}
+	console.log (num);
+	console.log(letters);
+	return Math.round(num/letters.length);
+
+}
+
+
+NumberSearch("Hello6 9World 2, Nic8e D7ay!");
+
+----------------------------------------------------------------------------------------------------------------------------------------
+/*Using the JavaScript language, have the function OverlappingRanges(arr) take the array of numbers stored in arr which will contain 5 positive integers, the first two representing a range of numbers (a to b), the next 2 also representing another range of integers (c to d), and a final 5th element (x) which will also be a positive integer, and return the string true if both sets of ranges overlap by at least x numbers. For example: if arr is [4, 10, 2, 6, 3] then your program should return the string true. The first range of numbers are 4, 5, 6, 7, 8, 9, 10 and the second range of numbers are 2, 3, 4, 5, 6. The last element in the array is 3, and there are 3 numbers that overlap between both ranges: 4, 5, and 6. If both ranges do not overlap by at least x numbers, then your program should return the string false. 
+*/
+
+function OverlappingRanges(arr) { 
+	var testArray= [];
+
+	for(var i = arr[2]; i <= arr[3]; i++) {
+		if (i >= arr[0] && i <= arr[1]) {
+			testArray.push(i);
+		}
+	}
+	console.log(testArray);
+	if (testArray.length >= arr[4]){
+		return "true";
+	}else{
+		return "false";
+	}
+}
+
+OverlappingRanges([4,10,2,6,3]);
+----------------------------------------------------------------------------------------------------------------------------------------
+/*Using the JavaScript language, have the function ChangingSequence(arr) take the array of numbers stored in arr and return the index at which the numbers stop increasing and begin decreasing or stop decreasing and begin increasing. For example: if arr is [1, 2, 4, 6, 4, 3, 1] then your program should return 3 because 6 is the last point in the array where the numbers were increasing and the next number begins a decreasing sequence. The array will contain at least 3 numbers and it may contains only a single sequence, increasing or decreasing. If there is only a single sequence in the array, then your program should return -1. Indexing should begin with 0. 
+*/
+
+function ChangingSequence(arr) { 
+	var test1 = arr[1] - arr[0];
+	
+	for(var i = 1; i < arr.length ; i++) {
+		if (arr[i] < arr[i-1] && test1 > 0) {
+			return i-1;
+		} else if (arr[i] > arr[i-1] && test1 < 0){
+			return i-1;
+		}
+	}
+	return -1;
+}
+
+ChangingSequence([5, 4, 3, 2, 10, 11]);
+----------------------------------------------------------------------------------------------------------------------------------------
+Code Fight
+function fareEstimator(ride_time, ride_distance, cost_per_minute, cost_per_mile) {
+    var array = [];
+    console.log(typeof cost_per_minute[0]);
+    console.log(cost_per_minute[0] * ride_time + cost_per_mile * ride_distance[0]);
+    for ( var i = 0; i < cost_per_mile.length ; i++) {
+        array.push(cost_per_minute[i] * ride_time + cost_per_mile * ride_distance[i]);
+    }
+    return array;
+}
+
+fareEstimator(30,7,[0.2, 0.35, 0.4, 0.45],[1.1, 1.8, 2.3, 3.5]);
+----------------------------------------------------------------------------------------------------------------------------------------
