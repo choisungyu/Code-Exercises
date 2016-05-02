@@ -1,0 +1,448 @@
+
+Description:
+
+Exclusive "or" (xor) Logical Operator
+
+Overview
+
+In some scripting languages like PHP, there exists a logical operator (e.g. &&, ||, and, or, etc.) called the "Exclusive Or" (hence the name of this Kata). The exclusive or evaluates two booleans. It then returns true if exactly one of the two expressions are true, false otherwise. For example:
+
+false xor false == false // since both are false
+true xor false == true // exactly one of the two expressions are true
+false xor true == true // exactly one of the two expressions are true
+true xor true == false // Both are true.  "xor" only returns true if EXACTLY one of the two expressions evaluate to true.
+Task
+
+Since we cannot define keywords in Javascript (well, at least I don't know how to do it), your task is to define a function xor(a, b) where a and b are the two expressions to be evaluated. Your xor function should have the behaviour described above, returning true if exactly one of the two expressions evaluate to true, false otherwise.
+
+function xor(a, b) {
+  // TODO: Program Me
+  var xOr = 0;
+  if (a === true && b === true) {
+  return false;
+  } else if (a === true) {
+  xOr += 1;
+  } else if (b === true) {
+  xOr += 1;
+  };
+  if (xOr === 1) {
+  return true;
+  } else {
+  return false;
+  }
+ }
+ 
+ 
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+Implement a function named generateRange(min, max, step), which takes three arguments and generates a range of integers from min to max, with the step. The first integer is the minimum value, the second is the maximum of the range and the third is the step. (min < max)
+
+generateRange(2, 10, 2) should return array of [2,4,6,8,10] generateRange(1, 10, 3) should return array of [1,4,7,10]
+
+function generateRange(min, max, step){
+  var newArray = new Array();
+  for ( i = min  ; i <= max; i += step) {
+    newArray.push(i); 
+  };
+  return newArray
+}
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+Triple Trouble
+
+Create a function that will return a string that combindes all of the letters of the three inputed strings in groups. Taking the first letter of all of the inputs and grouping them next to each other. Do this for every letter, see example below!
+
+Ex) Input: "aa", "bb" , "cc" => Output: "abcabc"
+
+Note: You can expect all of the inputs to be the same length.
+
+function tripleTrouble(one, two, three){
+  //Solution
+  var newText = '';
+  for (var i = 0; i < one.length; i++) {
+    newText += one[i] + two[i] + three[i];
+    }
+    return newText;
+ };
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+Write a function that rearranges an interger into its largest possible value.
+
+superSize(123456) //654321
+superSize(105) // 510
+superSize(12) // 21
+If the argument passed through is single digit or is already the maximum possible integer, your function should simply return it.
+
+function superSize(num){
+ var numStr = num.toString();
+ var newTest = 0;
+ for (var i = 9; i >= 0 ; i--) {
+   for (var j = 0; j < numStr.length; j++) {
+     if (numStr[j] == i.toString()) {
+       newTest += numStr[j];
+     }
+   }
+ }
+ if (newTest === numStr) {
+   return num;
+ }else{
+   return parseInt(newTest);
+ }
+}
+ 
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+Given a credit card number we can determine who the issuer/vendor is with a few basic knowns.
+
++============+=============+===============+
+| Card Type  | Begins With | Number Length |
++============+=============+===============+
+| AMEX       | 34 or 37    | 15            |
++------------+-------------+---------------+
+| Discover   | 6011        | 16            |
++------------+-------------+---------------+
+| Mastercard | 51-55       | 16            |
++------------+-------------+---------------+
+| VISA       | 4           | 13 or 16      |
++------------+-------------+---------------+
+Write a function (getIssuer(number) (get_issuer(number) for Python)) that will use the above known values to determine the card issuer given a card number. If the number cannot be matched then the function should return the string Unknown.
+
+Some sample numbers and their issuer:
+
+getIssuer(4111111111111111) == "VISA"
+getIssuer(4111111111111) == "VISA"
+getIssuer(4012888888881881) == "VISA"
+getIssuer(378282246310005) == "AMEX"
+getIssuer(6011111111111117) == "Discover"
+getIssuer(5105105105105100) == "Mastercard"
+getIssuer(5105105105105106) == "Mastercard"
+getIssuer(9111111111111111) == "Unknown"
+Note: ranges stated in this kata are inclusive.
+
+
+function getIssuer(number) {
+  var numStr = number.toString();
+  if (numStr.length === 15 && (numStr.slice(0,2) == 34 || numStr.slice(0,2) == 37)) {
+    return "AMEX";
+  } else if (numStr.length === 16 && numStr.slice(0,4) == 6011) {
+    return "Discover";
+  } else if (numStr.length === 16 && numStr.slice(0,2) > 50 && numStr.slice(0,2) < 56) {
+  return "Mastercard";
+  } else if (numStr[0] === "4" && (numStr.length == 16 || numStr.length == 13)) {
+  return "VISA";
+  } else {
+  return "Unknown";
+  }
+}
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+For every positive integer N, there exists a unique sequence starting with 1 and ending with N and such that every number in the sequence is either the double of the preceeding number or the double plus 1.
+
+For example, given N = 13, the sequence is [1, 3, 6, 13], because . . . :
+
+ 3 =  2*1 +1
+ 6 =  2*3
+ 13 = 2*6 +1
+Write a function that returns this sequence given a number N. Try generating the elements of the resulting list in ascending order, i.e., without resorting to a list reversal or prependig the elements to a list.
+
+function climb(n){
+  var arr = [n];
+  var num = n;
+  while (num > 1) {
+    num = Math.floor(num / 2);
+    arr.unshift(num);
+  }
+  return arr;
+}
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+Zebulan has worked hard to write all his python code in strict compliance to PEP8 rules. In this kata, you are a mischevious hacker that has set out to sabatoge all his good code.
+
+Your job is to take PEP8 compatible function names and convert them to camelCase. For example:
+
+zebulansNightmare('camel_case') == 'camelCase'
+zebulansNightmare('zebulans_nightmare') == 'zebulansNightmare'
+zebulansNightmare('get_string') == 'getString'
+zebulansNightmare('convert_to_uppercase') == 'convertToUppercase'
+zebulansNightmare('main') == 'main'
+
+function zebulansNightmare(str) {
+  var newString = "";
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === "_") {
+      i = i;
+    }else if (str[i-1] === "_") {
+      newString += str[i].toUpperCase();
+    }else{
+      newString += str[i];
+    }
+  }
+  return newString;
+}
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+Write a function that will randomly upper and lower characters in a string - randomCase() (random_case() for Python).
+
+A few examples:
+
+randomCase("Lorem ipsum dolor sit amet, consectetur adipiscing elit") == "lOReM ipSum DOloR SiT AmeT, cOnsEcTEtuR aDiPiSciNG eLIt"
+
+randomCase("Donec eleifend cursus lobortis") == "DONeC ElEifEnD CuRsuS LoBoRTIs"
+Note: this function will work within the basic ASCII character set to make this kata easier - so no need to make the function multibyte safe.
+
+function randomCase(x) {
+  // Code your solution here
+  var text = '';
+  for (var i = 0; i < x.length; i++) {
+    var rand = Math.random();
+    if (rand > 0.5) {
+      text += x[i].toUpperCase();
+    }else{
+      text += x[i].toLowerCase();
+    }
+  }
+  return text;
+}
+ -------------------------------------------------------------------------------------------------------------------------------------
+ 
+ //push shift
+function rotate(arr, steps) {
+	var arr1 = arr;
+	var text = "";
+	for (var i = 0; i < steps; i++){
+		arr1.push(arr1.shift());
+		//arr1.push(text);
+	}
+	return arr1;
+}
+
+rotate([1,2,3,4,5], 5);
+ -------------------------------------------------------------------------------------------------------------------------------------
+ 
+ //IndexOf function
+
+function indexOf(str, queryStr) {
+	for (var i = 0; i < str.length; i++) {
+		for ( var n = 0; n < queryStr.length; n++) {
+			if (str[i] !== queryStr[n]) {
+				break;
+			} else {
+				return i;
+			}
+		}
+		
+	}
+	return -1;
+}
+
+indexOf("HelloWorld", "World");
+ 
+ 
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Description:
+
+You have an award-winning garden and everyday the plants need exactly 40mm of water. You created a great piece of JavaScript to calculate the amount of water your plants will need when you have taken into consideration the amount of rain water that is forecast for the day. Your jealous neighbour hacked your computer and filled your code with bugs.
+
+Your task is to debug the code before your plants die!
+
+function rainAmount(mm){
+    if ( mm < 40) {
+         return "You need to give your plant " + (40 - mm) + "mm of water"
+    } else {
+         return "Your plant has had more than enough water for today!"
+    }
+}
+
+ -------------------------------------------------------------------------------------------------------------------------------------
+Description:
+
+If/else syntax debug
+
+While making a game, your partner, Greg, decided to create a function to check if the user is still alive called checkAlive. Unfortunately, Greg made some errors while creating the function.
+
+checkAlive should return true if the player's health is greater than 0 or false if it is 0 or below.
+
+checkAlive receives one parameter health which will always be a whole number between -10 and 10.
+
+Description:
+
+
+function checkAlive(health) {
+  if (health <= 0) {
+    return false;
+  } 
+  else {
+    return true;
+  }
+}
+
+ -------------------------------------------------------------------------------------------------------------------------------------
+ 
+ /*Using the JavaScript language, have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
+*/
+
+// 97-122
+function LetterChanges(str) { 
+	var newStr = str.toLowerCase().split("");
+	var vowels = "AEIOU";
+    for (var i = 0; i < newStr.length; i++){
+    	if (newStr[i] === "z") {
+    		newStr[i] = "A";
+    	} else if (newStr[i].charCodeAt(0) >96 && newStr[i].charCodeAt(0) < 122 ) {
+    		newStr[i] = String.fromCharCode(newStr[i].charCodeAt(0) + 1);
+    	}
+    }
+    newStr = newStr.join("");
+    console.log(newStr);
+    for (var j = 0; j < vowels.length; j++) {
+    	newStr = newStr.replace(vowels[j].toLowerCase(), vowels[j]);
+	}
+	return newStr;
+}
+LetterChanges("Argument goez here");
+
+ -------------------------------------------------------------------------------------------------------------------------------------
+ /*Using the JavaScript language, have the function SimpleSymbols(str) take the str parameter being passed and determine if it is an acceptable sequence by either returning the string true or false. The str parameter will be composed of + and = symbols with several letters between them (ie. ++d+===+c++==a) and for the string to be true each letter must be surrounded by a + symbol. So the string to the left would be false. The string will not be empty and will have at least one letter. 
+*/
+
+function SimpleSymbols(str) { 
+	var result = false;
+	var arr1 = str.split("");
+	if ((str[0] >= "A" && str[0]<= "z") || (str[str.length-1]>= "A" && str[str.length-1] <= 123)){
+		return false;
+	}
+	for ( var i = 0; i < str.length ; i++) {
+		if(str[i].charCodeAt(0) > 96 && str[i].charCodeAt(0) < 123 && str[i-1] === "+" && str[i+1] === "+") {
+			result = true;
+			console.log("1");
+		} else if((str[i].charCodeAt(0) > 96 && str[i].charCodeAt(0) < 123) && (str[i-1] !== "+" || str[i+1] !== "+")){
+			console.log("2");
+			result = false;
+		}
+   }
+  return result; 
+}
+
+console.log("z" > "B");
+ -------------------------------------------------------------------------------------------------------------------------------------
+ /*Using the JavaScript language, have the function TimeConvert(num) take the num parameter being passed and return the number of hours and minutes the parameter converts to (ie. if num = 63 then the output should be 1:3). Separate the number of hours and minutes with a colon. 
+*/
+
+function TimeConvert(num) { 
+	var hour = Math.floor(num / 60);
+	var minute = num % 60;
+	return hour + ":" + minute; 
+}
+
+TimeConvert(63);
+-------------------------------------------------------------------------------------------------------------------------------------
+ /*Using the JavaScript language, have the function WordCount(str) take the str string parameter being passed and return the number of words the string contains (ie. "Never eat shredded wheat" would return 4). Words will be separated by single spaces. 
+*/
+
+function WordCount(str) { 
+	var strArr = str.split(" ");
+  	return strArr.length; 
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+/*Using the JavaScript language, have the function ABCheck(str) take the str parameter being passed and return the string true if the characters a and b are separated by exactly 3 places anywhere in the string at least once (ie. "lane borrowed" would result in true because there is exactly three characters between a and b). Otherwise return the string false. 
+*/
+function ABCheck(str) {
+//	newStr = str.split(" ").join("");
+	
+	if((str.search(/A...B/gi)) >= 0) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+ABCheck("Laura sobs");  
+------------------------------------------------------------------------------------------------------------------------------------
+/*Using the JavaScript language, have the function ExOh(str) take the str parameter being passed and return the string true if there is an equal number of x's and o's, otherwise return the string false. Only these two letters will be entered in the string, no punctuation or numbers. For example: if str is "xooxxxxooxo" then the output should return false because there are 6 x's and 5 o's. 
+*/
+
+function ExOh(str) { 
+	var x = 0;
+	var o = 0;
+	for (var i = 0; i<str.length;i++){
+		if(str[i].toLowerCase() === "x") {
+			x += 1;
+		}else if(str[i].toLowerCase() === "o") {
+			o += 1;
+		}
+	}
+	if (x === o){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+ExOh("XooxoOOxoX");
+------------------------------------------------------------------------------------------------------------------------------------
+/*
+Using the JavaScript language, have the function ArithGeo(arr) take the array of numbers stored in arr and return the string "Arithmetic" if the sequence follows an arithmetic pattern or return "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return -1. An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term after the first is multiplied by some constant or common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements. 
+*/
+
+// use % === 0 for geometric
+// use - === x for arithmetic
+function ArithGeo(arr) {
+	var arithmetic = false;
+	var geometric = false;
+	for ( var i = arr.length -1; i > 0 ; i--) {
+		if(arr[i] % arr[i-1] === 0) {
+			geometric = true;
+		}else{
+			geometric = false;
+			break;
+		}
+	}
+	for ( var j = arr.length -1; j > 0 ; j--) {	
+		if((arr[i] - arr[i-1]) === arr[0]) {
+			arithmetic = true;
+		}else{
+			arithmetic = false;
+			break;
+		}
+	}
+	if(arithmetic === true){
+		return "Arithmetic";
+	}else if ( geometric === true) {
+		return "Geometric";
+	} else {
+		return -1;
+	}
+}
+
+ArithGeo([2, 6, 18, 54]);
+-------------------------------------------------------------------------------------------------------------------------------------
+/*
+Using the JavaScript language, have the function SwapCase(str) take the str parameter and swap the case of each character. For example: if str is "Hello World" the output should be hELLO wORLD. Let numbers and symbols stay the way they are.
+*/
+
+function SwapCase(str) { 
+	var newStr = "";
+	for (var i = 0; i < str.length; i++) {
+		if(str[i].toLowerCase() >= "a" && str[i].toLowerCase() <= "z") {
+			if(str[i] === str[i].toLowerCase()) {
+				newStr += str[i].toUpperCase();
+			} else {
+				newStr += str[i].toLowerCase();
+			}
+		} else {
+			newStr += str[i];
+		}
+	}
+	return newStr;
+}
+
+SwapCase("Sup DUDE!!?");
