@@ -139,7 +139,7 @@ The number of palindrome substrings.
 
 */
 
-//!!!!!!!!!!!!!!!!!!!!Solution Too slow. 1500+ character string with few palindromes takes to long to parse!!!!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!Solution Too slow. 1500+ character string with few palindromes takes too long to parse!!!!!!!!!!!!!!!!!!!
 /*
 function NPalindromes(s) {
     var counter = 0;
