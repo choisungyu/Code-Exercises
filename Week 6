@@ -79,33 +79,33 @@ function a(n){
 	var drawA = [];
 	var rowCounter = 0;
 
-	if(n < 4){																			//check if n is less than 4 or odd
+	if(n < 4){									//check if n is less than 4 or odd
 		return "";
 	} else if( n%2 !==0){
 		n = n-1;
 	}
 
-	for (var i = n; i > 0; i--) {												          		// Create array to draw on
+	for (var i = n; i > 0; i--) {							// Create array to draw on
 		for (var j =1 ; j < 2*n; j++) {
 			drawA.push(" ");
 		}
 	drawA.push("\n");	
 	}
-	drawA.pop(); 																                  		// remove last line break !find better way
+	drawA.pop(); 									// remove last line break !find better way
 
 	for( var index = 0; index < n; index++ ){
 		var drawInLine = (rowCounter*(2*n));
-		if( index === 0) {									              							// Draw first A
+		if( index === 0) {							// Draw first A
 			drawA.splice(n-1,1, "A");
 			rowCounter++;
-		}else if (rowCounter === n/2){													        // Draw Middle Row
+		}else if (rowCounter === n/2){						      // Draw Middle Row
 			for (var midRow = 0; midRow < n+1; midRow++){
 				if(midRow % 2 === 0){
 					drawA.splice((drawInLine+(n-(index+1)))+midRow,1, "A");
 				}
 			}
 			rowCounter++;
-		}else{																			                    // Draw every other row
+		}else{										    // Draw every other row
 			drawA.splice(drawInLine+(n-(index+1)),1, "A");
 			drawA.splice(drawInLine+(n+(index-1)),1, "A");
 			rowCounter++;
@@ -139,7 +139,7 @@ The number of palindrome substrings.
 
 */
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Solution Too slow. 1500+ character string with few palindromes takes to long to parse!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Solution Too slow. 1500+ character string with few palindromes takes to long to parse!!!!!!!!!!!!!!!!!!!
 /*
 function NPalindromes(s) {
     var counter = 0;
