@@ -1,7 +1,6 @@
 
 
 /* 
-Fullstack Academy - JavaScript JumpStart
 
 Challenge - under_score to camelCase
 
@@ -33,3 +32,176 @@ function underToCamel(str) {
 }
 
 underToCamel("first__name___fgh_rryt");
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Challenge - "pop, push, shift, unshift"
+
+*/
+
+// STEP 1: Create an array and assign it to a variable.
+
+var array1 = [1,2,3,4,5];
+
+// STEP 2: Use the `push` method to add 5 values into your Array
+
+array1.push(6,7,8,9,10);
+
+array1;
+// STEP 3: Use the `unshift` method to add 5 values to the front of your Array.
+
+array1.unshift(-4,-3,-2,-1,0);
+
+array1;
+
+// STEP 4: Use the `pop` method to remove 2 values from the back of your Array.
+
+
+array1.pop();
+array1.pop();
+
+array1;
+
+
+// STEP 5: Use the "shift" method to remove 2 values from the front of your Array.
+
+array1.shift();
+array1.shift();
+array1;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Description:
+
+Very simple, given a number, find its opposite.
+
+Examples:
+
+1: -1
+14: -14
+-34: 34
+But can you do it in 1 line of code and without any conditionals?
+
+function opposite(number) {
+    return number * (-1);
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Description:
+
+Your friend has been out shopping for puppies (what a time to be alive!)... He arrives back with multiple dogs, and you simply do not know how to respond!
+
+By repairing the function provided, you will find out exactly how you should respond, depending on the number of dogs he has.
+
+The number of dogs will always be a number and there will always be at least 1 dog.
+
+
+
+function howManyDalmatians(number) {
+  
+  var dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];
+  
+  var respond = number <= 10 ? dogs[0] : number <= 50 ? dogs[1] : number > 100 && number < 102 ? dogs[3]: dogs[2]
+  
+return respond
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Description:
+
+Some new animals have arrived at the zoo. The zoo keeper is concerned that perhaps the animals do not have the right tails. To help her, you must correct the broken function to make sure that the second argument (tail), is the same as the last letter of the first argument (body) - otherwise the tail wouldn't fit!
+
+If the tail is right return true, else return false.
+
+The arguments will always be strings, and normal letters.
+
+function correctTail(body, tail) {
+  
+  var sub = body.substring(body.length-1);
+  
+  if (sub === tail.substring(0,1)) {
+    return true;
+  }else {
+    return false;
+  }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Description:
+
+It's bonus time in the big city! The fatcats are rubbing their paws in anticipation... but who is going to make the most money?
+
+Build a function that takes in two arguments (salary, bonus). Salary will be an integer, and bonus a boolean.
+
+If bonus is true, the salary should be multiplied by 10. If bonus is false, the fatcat did not make enough money and must receive only his stated salary.
+
+Return the total figure the individual will receive as a string prefixed with '£' (JS and Java) or '$' (Ruby and Python).
+
+
+function bonusTime(salary, bonus) {
+  if (bonus === true) {
+    salary = salary * 10;
+    return '\u00A3' + salary;
+  } else {
+    return '\u00A3' + salary;
+  }  
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Description:
+
+Be Concise I - The Ternary Operator
+
+You are given a function describeAge that takes a parameter age (which will always be a positive integer) and does the following:
+
+If the age is 12 or lower, it return "You're a(n) kid"
+If the age is anything between 13 and 17 (inclusive), it return "You're a(n) teenager"
+If the age is anything between 18 and 64 (inclusive), it return "You're a(n) adult"
+If the age is 65 or above, it return "You're a(n) elderly"
+Your task is to shorten the code as much as possible. Note that submitting the given code will not work because there is a character limit of 137.
+
+I'll give you a few hints:
+
+The title itself is a hint - if you're not sure what to do, always research any terminology in this description that you have not heard of!
+Don't you think the whole "You're a(n) <insert_something_here>" is very repetitive? ;) Perhaps we can shorten it?
+Whatever you do, do not change what the function does. Good luck :)
+
+
+var i = "You're a(n) "
+function describeAge(a) {
+  return a < 13 ? i + 'kid': a < 18? i + 'teenager': a < 65 ? i + 'adult': i + 'elderly';
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Description:
+
+Object debugging
+
+While making a zork-type game, you create an object of rooms. Unfortunately, the game is not working. Find all of the errors in the rooms object to get your game working again.
+Fundamentals
+
+var rooms = {
+  first: {
+    description: 'This is the first room',
+    items: {
+      chair: 'The old chair looks comfortable',
+      lamp: 'This lamp looks ancient'
+    }
+  },
+  second: {
+    description: 'This is the second room',
+    items: {
+      couch: 'This couch looks like it would hurt your back',
+      table: 'On the table there is an unopened bottle of water'
+    }
+  }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
