@@ -28,7 +28,10 @@ function sc(apple){
 }
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-/*Using the JavaScript language, have the function CountingMinutesI(str) take the str parameter being passed which will be two times (each properly formatted with a colon and am or pm) separated by a hyphen and return the total number of minutes between the two times. The time will be in a 12 hour clock format. For example: if str is 9:00am-10:00am then the output should be 60. If str is 1:00pm-11:00am the output should be 1320.
+/*Using the JavaScript language, have the function CountingMinutesI(str) take the str parameter being passed which will be two times 
+(each properly formatted with a colon and am or pm) separated by a hyphen and return the total number of minutes between the two times.
+The time will be in a 12 hour clock format. For example: if str is 9:00am-10:00am then the output should be 60. If str is 1:00pm-11:00am 
+the output should be 1320.
 */
 
 
@@ -57,7 +60,10 @@ function CountingMinutesI(str) {
 
 CountingMinutesI("1:23am-1:08am");
 ----------------------------------------------------------------------------------------------------------------------------------------
-/*Using the JavaScript language, have the function HammingDistance(strArr) take the array of strings stored in strArr, which will only contain two strings of equal length and return the Hamming distance between them. The Hamming distance is the number of positions where the corresponding characters are different. For example: if strArr is ["coder", "codec"] then your program should return 1. The string will always be of equal length and will only contain lowercase characters from the alphabet and numbers.
+/*Using the JavaScript language, have the function HammingDistance(strArr) take the array of strings stored in strArr, which will only 
+contain two strings of equal length and return the Hamming distance between them. The Hamming distance is the number of positions where 
+the corresponding characters are different. For example: if strArr is ["coder", "codec"] then your program should return 1. The string 
+will always be of equal length and will only contain lowercase characters from the alphabet and numbers.
 */
 
 
@@ -80,7 +86,10 @@ HammingDistance(["helloworld", "worldhello"]);
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 /*
-Using the JavaScript language, have the function BitwiseOne(strArr) take the array of strings stored in strArr, which will only contain two strings of equal length that represent binary numbers, and return a final binary string that performed the bitwise OR operation on both strings. A bitwise OR operation places a 0 in the new string where there are zeroes in both binary strings, otherwise it places a 1 in that spot. For example: if strArr is ["1001", "0100"] then your program should return the string "1101" 
+Using the JavaScript language, have the function BitwiseOne(strArr) take the array of strings stored in strArr, which will only contain two 
+strings of equal length that represent binary numbers, and return a final binary string that performed the bitwise OR operation on both strings.
+A bitwise OR operation places a 0 in the new string where there are zeroes in both binary strings, otherwise it places a 1 in that spot. 
+For example: if strArr is ["1001", "0100"] then your program should return the string "1101" 
 */
 
 function BitwiseOne(strArr) { 
@@ -97,7 +106,10 @@ function BitwiseOne(strArr) {
 
 BitwiseOne(["1001","0100"]);
 ----------------------------------------------------------------------------------------------------------------------------------------
-/*Using the JavaScript language, have the function PalindromeTwo(str) take the str parameter being passed and return the string true if the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the string false. The parameter entered may have punctuation and symbols but they should not affect whether the string is in fact a palindrome. For example: "Anne, I vote more cars race Rome-to-Vienna" should return true. 
+/*Using the JavaScript language, have the function PalindromeTwo(str) take the str parameter being passed and return the string true if 
+the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the string false. The parameter entered 
+may have punctuation and symbols but they should not affect whether the string is in fact a palindrome. For example: "Anne, I vote more 
+cars race Rome-to-Vienna" should return true. 
 */
 
 function PalindromeTwo(str) {
@@ -143,7 +155,10 @@ items.sort(function (a, b) {
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-/*Implement the function longest(array,n) where you will be given an array of strings and then return the nth longest string in that array. e.g. arr = ['Hello','World','Codewars','Katas'] n = 3; should return 'World' because 'Codewars' length = 8 , 'Hello' length = 5, so that is the 2nd longest word and then 'World' (although also word length of 5, 'World' is after 'Hello' in the array). When words have the same lengths, treat them in the order in which they exist in the array. Array will never be empty and n > 0 always.
+/*Implement the function longest(array,n) where you will be given an array of strings and then return the nth longest string in that array. 
+e.g. arr = ['Hello','World','Codewars','Katas'] n = 3; should return 'World' because 'Codewars' length = 8 , 'Hello' length = 5, so that is 
+the 2nd longest word and then 'World' (although also word length of 5, 'World' is after 'Hello' in the array). When words have the same lengths, 
+treat them in the order in which they exist in the array. Array will never be empty and n > 0 always.
 */
 
 function longest(arr, n) {
@@ -182,11 +197,16 @@ console.log(longest(['Hello','World','Codewars','Katas'],3));
 ----------------------------------------------------------------------------------------------------------------------------------------
 /*Help Suzuki rake his garden!
 
-The monastery has a magnificent Zen garden made of white gravel and rocks and it is raked diligently everyday by the monks. Suzuki having a keen eye is always on the lookout for anything creeping into the garden that must be removed during the daily raking such as insects or moss.
+The monastery has a magnificent Zen garden made of white gravel and rocks and it is raked diligently everyday by the monks. Suzuki having a
+keen eye is always on the lookout for anything creeping into the garden that must be removed during the daily raking such as insects or moss.
 
 You will be given a string representing the garden such as:
 
-garden = 'gravel gravel gravel gravel gravel gravel gravel gravel gravel rock slug ant gravel gravel snail rock gravel gravel gravel gravel gravel gravel gravel slug gravel ant gravel gravel gravel gravel rock slug gravel gravel gravel gravel gravel snail gravel gravel rock gravel snail slug gravel gravel spider gravel gravel gravel gravel gravel gravel gravel gravel moss gravel gravel gravel snail gravel gravel gravel ant gravel gravel moss gravel gravel gravel gravel snail gravel gravel gravel gravel slug gravel rock gravel gravel rock gravel gravel gravel gravel snail gravel gravel rock gravel gravel gravel gravel gravel spider gravel rock gravel gravel'
+garden = 'gravel gravel gravel gravel gravel gravel gravel gravel gravel rock slug ant gravel gravel snail rock gravel gravel gravel gravel 
+gravel gravel gravel slug gravel ant gravel gravel gravel gravel rock slug gravel gravel gravel gravel gravel snail gravel gravel rock gravel
+snail slug gravel gravel spider gravel gravel gravel gravel gravel gravel gravel gravel moss gravel gravel gravel snail gravel gravel gravel 
+ant gravel gravel moss gravel gravel gravel gravel snail gravel gravel gravel gravel slug gravel rock gravel gravel rock gravel gravel gravel 
+gravel snail gravel gravel rock gravel gravel gravel gravel gravel spider gravel rock gravel gravel'
 
 Rake out any items that are not a rock or gravel and replace them with gravel such that:
 
@@ -211,14 +231,18 @@ function rakeGarden(garden) {
 
 /*Help Suzuki count his vegetables....
 
-Suzuki is the master monk of his monastery so it is up to him to ensure the kitchen is operating at full capacity to feed his students and the villagers that come for lunch on a daily basis.
+Suzuki is the master monk of his monastery so it is up to him to ensure the kitchen is operating at full capacity to feed his students and 
+the villagers that come for lunch on a daily basis.
 
-This week there was a problem with his deliveries and all the vegetables became mixed up. There are two important aspects of cooking in his kitchen, it must be done in harmony and nothing can be wasted. Since the monks are a record keeping people the first order of business is to sort the mixed up vegetables and then count them to ensure there is enough to feed all the students and villagers.
+This week there was a problem with his deliveries and all the vegetables became mixed up. There are two important aspects of cooking in his 
+kitchen, it must be done in harmony and nothing can be wasted. Since the monks are a record keeping people the first order of business is to 
+sort the mixed up vegetables and then count them to ensure there is enough to feed all the students and villagers.
 
 You will be given a string with the following vegetables:
 
 "cabbage", "carrot", "celery", "cucumber", "mushroom", "onion", "pepper", "potato", "tofu", "turnip"
-Return a list of tuples with the count of each vegetable in descending order. If there are any non vegetables mixed in discard them. If the count of two vegetables is the same sort in descending alphabetical order.
+Return a list of tuples with the count of each vegetable in descending order. If there are any non vegetables mixed in discard them. If the 
+count of two vegetables is the same sort in descending alphabetical order.
 
 (119, "pepper"),
 (114, "carrot"),
@@ -243,8 +267,9 @@ function countVegetables(string){
 		if (obj[vegetables[i]] === undefined) {
 
 			//check if vegetable is in the string and add the total occurence
+			// match returns an array, legnth of array is the number of matches in the string
 			if (string.match(currentVeg) !== null && (string.match(currentVeg).length) > 0) {
-				obj[vegetables[i]] = (string.match(currentVeg).length); 			// match returns an array, legnth of array is the number of matches in the string
+				obj[vegetables[i]] = (string.match(currentVeg).length);  
 			}
 		}
 	}
@@ -303,7 +328,8 @@ function printArray(array){
 ---------------------------------------------------------------------------------------------------------------------------------------
 Description:
 
-You can print your name on a billboard ad. Find out how much it will cost you. Each letter has a default price of £30, but that can be different if you are given 2 parameters instead of 1.
+You can print your name on a billboard ad. Find out how much it will cost you. Each letter has a default price of £30, but that can be different
+if you are given 2 parameters instead of 1.
 
 You can not use multiplier "*" operator.
 
@@ -318,7 +344,10 @@ function billboard(name, price = 30){
 } 
 ---------------------------------------------------------------------------------------------------------------------------------------
 /*
-Using the JavaScript language, have the function Superincreasing(arr) take the array of numbers stored in arr and determine if the array forms a superincreasing sequence where each element in the array is greater than the sum of all previous elements. The array will only consist of positive integers. For example: if arr is [1, 3, 6, 13, 54] then your program should return the string "true" because it forms a superincreasing sequence. If a superincreasing sequence isn't formed, then your program should return the string "false" 
+Using the JavaScript language, have the function Superincreasing(arr) take the array of numbers stored in arr and determine if the array forms
+a superincreasing sequence where each element in the array is greater than the sum of all previous elements. The array will only consist of 
+positive integers. For example: if arr is [1, 3, 6, 13, 54] then your program should return the string "true" because it forms a superincreasing
+sequence. If a superincreasing sequence isn't formed, then your program should return the string "false" 
 */
 
 function Superincreasing(arr) { 
