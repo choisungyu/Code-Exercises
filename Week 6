@@ -91,7 +91,7 @@ function a(n){
 		}
 	drawA.push("\n");	
 	}
-	drawA.pop(); 									// remove last line break !find better way
+	drawA.pop(); 									// remove last line break
 
 	for( var index = 0; index < n; index++ ){
 		var drawInLine = (rowCounter*(2*n));
