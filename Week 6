@@ -318,10 +318,11 @@ In order to decide who will take part in the final game and probably become rich
 
 The Wheel of Fortune is divided into 20 sections, each with a number from 5 to 100 (only mulitples of 5).
 
-Each candidate can roll the wheel once or twice and sum up the score of each roll. The winner one that is closest to 100 (while still being 
-lower or equal to 100). In case of a tie, the candidate that rolled the wheel first wins.
+Each candidate can roll the wheel once or twice and sum up the score of each roll. The winner one that is closest to 100 (
+while still being lower or equal to 100). In case of a tie, the candidate that rolled the wheel first wins.
 
-You receive the information about each candidate as an array of objects: each object should have a name and a scores array with the candidate roll values.
+You receive the information about each candidate as an array of objects: each object should have a name and a scores array with 
+the candidate roll values.
 
 Your solution should return the name of the winner or false if there is no winner (candidates scored more than 100).
 
@@ -351,7 +352,8 @@ function winner(candidates) {
 	for (var i = 0 ; i < candidates.length ; i++){
 		playerScoreTotal = 0;
 
-		if(candidates[i].scores === undefined || candidates[i].name === undefined || candidates[i].name === "" || candidates[i].scores.length === 0 || candidates[i].scores.length > 2 || candidates[i].scores === "") {
+		if(candidates[i].scores === undefined || candidates[i].name === undefined || candidates[i].name === "" ||
+		candidates[i].scores.length === 0 || candidates[i].scores.length > 2 || candidates[i].scores === "") {
 			return false;	
 		}
 		for (var k = 0; k < candidates[i].scores.length ; k++) {
