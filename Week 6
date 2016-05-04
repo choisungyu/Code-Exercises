@@ -312,5 +312,79 @@ function longest(arr, n) {
   return arr2[n-1][0] ;
 }
 -------------------------------------------------------------------------------------------------------------------------------------
+/*Three candidates take part in a TV show.
 
+In order to decide who will take part in the final game and probably become rich, they have to roll the Wheel of Fortune!
+
+The Wheel of Fortune is divided into 20 sections, each with a number from 5 to 100 (only mulitples of 5).
+
+Each candidate can roll the wheel once or twice and sum up the score of each roll. The winner one that is closest to 100 (while still being 
+lower or equal to 100). In case of a tie, the candidate that rolled the wheel first wins.
+
+You receive the information about each candidate as an array of objects: each object should have a name and a scores array with the candidate roll values.
+
+Your solution should return the name of the winner or false if there is no winner (candidates scored more than 100).
+
+Example:
+
+var c1 = { name: "Bob", scores: [10, 65] };
+var c2 = { name: "Bill", scores: [90, 5] };
+var c3 = { name: "Charlie", scores: [40, 55] };
+winner([c1, c2, c3]); // Returns "Bill"
+Please note that inputs may be invalid: in this case, the function should return false.
+
+Potential errors derived from the specifications are: - More or less than three candidates take part in the game. - 
+A candidate did not roll the wheel or rolled it more than twice. - Scores are not valid. - Invalid user entry (no name or no score).
+*/
+
+function winner(candidates) {
+	playerArr = [];
+	WinPlayerArr = [];
+	var playerScoreTotal = 0;
+
+	//Check Errors
+	if(candidates.length !== 3 || candidates.length === undefined){
+		return false;
+	}
+	
+	
+	for (var i = 0 ; i < candidates.length ; i++){
+		playerScoreTotal = 0;
+
+		if(candidates[i].scores === undefined || candidates[i].name === undefined || candidates[i].name === "" || candidates[i].scores.length === 0 || candidates[i].scores.length > 2 || candidates[i].scores === "") {
+			return false;	
+		}
+		for (var k = 0; k < candidates[i].scores.length ; k++) {
+			var playerScores = candidates[i].scores[k];
+			if (playerScores % 5 !== 0 || playerScores <= 0 || playerScores > 100 || typeof playerScores !== "number" ) {
+				return false;
+			} else {
+				playerScoreTotal += playerScores;
+			}
+		}
+		playerArr.push([candidates[i].name , playerScoreTotal]);
+	}
+	
+	//Check results
+	for (var j = 0 ; j < playerArr.length ; j++) {
+		if (playerArr[j][1] <= 100 ) {
+			WinPlayerArr.push([playerArr[j][0], playerArr[j][1]]) ;
+		}
+	}
+	
+	WinPlayerArr.sort( function (a,b) {
+		return b[1] - a[1];
+	});
+	
+	return WinPlayerArr[0][0];
+	
+}
+
+var c1 = { name: "Joe", scores: [40, 15] };
+var c2 = { name: "Bill", scores: [40, 5] };
+var c3 = { name: "Charlie", scores: [40, 55] };
+
+
+var candidates = [c1,c2,c3];
+winner(candidates);
 
