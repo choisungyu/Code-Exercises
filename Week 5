@@ -262,3 +262,21 @@ function fareEstimator(ride_time, ride_distance, cost_per_minute, cost_per_mile)
 fareEstimator(30,7,[0.2, 0.35, 0.4, 0.45],[1.1, 1.8, 2.3, 3.5]);
 ----------------------------------------------------------------------------------------------------------------------------------------
 
+Have the function PrimeTime(num) take the num parameter being passed and return the string true if the parameter is a prime number, otherwise 
+return the string false. The range will be between 1 and 2^16. 
+
+
+function PrimeTime(num) { 
+  var sqrtNum = Math.floor(Math.sqrt(num));
+  var numTest = 0;
+  for ( var i =0 ; i < sqrtNum ; i++) {
+  	if(num % i === 0) {
+  		numTest += 1;
+  	}
+  }
+  if (numTest > 2) {
+  	return false;
+  }else {
+  	return true;
+  }
+}
