@@ -390,3 +390,24 @@ var c3 = { name: "Charlie", scores: [40, 55] };
 var candidates = [c1,c2,c3];
 winner(candidates);
 
+---------------------------------------------------------------------------------------------------------------------------------------
+
+/*Using the JavaScript language, have the function DashInsert(str) insert dashes ('-') between each two odd numbers in str. For 
+example: if str is 454793 the output should be 4547-9-3. Don't count zero as an odd number. 
+*/
+
+function DashInsert(str) { 
+	var newStr = str.toString().split("");	
+	for(var i = 1; i < newStr.length ; i++) {
+		if (newStr[i] === 0) {
+			continue;
+		}
+		if(newStr[i] % 2 !== 0 && newStr[i-1] % 2 !== 0) {
+			newStr.splice([i],0,"-");
+			i = i+1;
+		}
+	}
+	return newStr.join("");
+}
+
+DashInsert(454793);
