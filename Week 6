@@ -454,3 +454,34 @@ function countSpecMult(n, mxval) {
 	
 	return Math.floor(mxval / divisor);
 }
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Find the angle of an analog clock between the hour hand and minute hand given the hour and minute.
+
+/*
+Clock Angles
+
+360 degrees in one hour
+30 degrees in 5 min
+6 degrees in 1 min
+
+for Hour hand
+1 hour = 30 degrees
+30 degress divide by 60 minutes = .5
+
+ex
+
+
+*/
+function clock_angles(hour, minute) {
+	var minDegree = minute * 6;
+	var hourDegree = (hour * 30) + (minute * 0.5); 
+	
+	if ( minDegree > hourDegree) {
+		return minDegree - hourDegree;
+	} else {
+		return hourDegree - minDegree;
+	}
+}
+
+clock_angles(3,15);
